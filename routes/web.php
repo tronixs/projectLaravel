@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/news', [NewsController::class, 'index']);
+Route::group(['prefix' => ''], static function() {
+    Route::get('/news', [NewsController::class, 'index'])
+     ->name('news');
+    Route::get('/news/{id}/show', [NewsController::class, 'show'])
+    ->where('id', '\d+')
+        ->name('news.show');
+ });
 
+ Route::get('/catigory_news', [NewsController::class, 'index'])
+        ->name('catigory_news');
 
-Route::get('/news/{id}/show', [NewsController::class, 'show'])
-->where( name: 'id', expression: '\d+');
+Route::get('/catigory_news/{id}/show', [NewsController::class, 'show'])
+    ->where('id', '\d+')
+        ->name('catigory_news.show');

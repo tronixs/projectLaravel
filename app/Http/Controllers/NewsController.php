@@ -8,15 +8,19 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+
     
+    use NewsCatigoryTrait;
 
     public function index()
     {
-        return "Show news list";
+        return \view('catigory_news.index', [
+            'catigory_news' => $this->getNewsCatigory(),
+        ]);
     }
 
     public function show(int $id)
     {
-        return "Show news #ID " . $id;
+        return $this->getNewsCatigory($id);
     }
 }
