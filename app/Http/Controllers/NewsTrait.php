@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 namespace App\Http\Controllers;
+use Illuminate\Cache\RetrievesMultipleKeys;
+use PhpParser\Node\Stmt\Return_;
 
 trait NewsTrait
 {
@@ -10,6 +12,7 @@ trait NewsTrait
     public function getNews(int $id = null): array
     {
         $news = [];
+        $catigory = [];
         $quantityNews = 10;
 
         if ($id === null) {

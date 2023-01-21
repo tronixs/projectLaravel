@@ -10,17 +10,16 @@ class NewsController extends Controller
 {
 
     
-    use NewsCatigoryTrait;
-
+    use NewsTrait;
     public function index()
     {
-        return \view('catigory_news.index', [
-            'catigory_news' => $this->getNewsCatigory(),
+        return \view('news.index', [
+            'news' => $this->getNews(),
         ]);
     }
 
     public function show(int $id)
     {
-        return $this->getNewsCatigory($id);
+        return $this->getNews($id);
     }
 }

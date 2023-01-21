@@ -3,28 +3,29 @@
 declare(strict_types=1);
 
 namespace App\Http\Controllers;
+use Illuminate\Cache\RetrievesMultipleKeys;
+use PhpParser\Node\Stmt\Return_;
 
-
-Trait NewsCatigoryTrait
+trait NewsCatigoryTrait
 {
-
     public function getNewsCatigory(int $id = null): array
     {
-        $catigory_news = [];
-        $quantityNewsCatigory = 10;
+        $catigory = [];
+        $quantityNews = 10;
 
         if ($id === null) {
-            for($i=1; $i < $quantityNewsCatigory; $i++) {
-                $catigory_news[$i] = [
+            for($i=1; $i < $quantityNews; $i++) {
+                $catigory[$i] = [
                     'id' => $i,
                     'title' => \fake()->jobTitle(),
+                    'catigory_id' => \fake()->unique()->randomDigit(),
                     'description' => \fake()->text(100),
                     'author' => \fake()->userName(),
                     'created_at' => \now()->format('d-m-y h:i'),
                 ];
             }
 
-            return $catigory_news;
+            return $catigory;
         }
 
         return [

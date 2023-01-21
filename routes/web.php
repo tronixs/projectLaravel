@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsCatigoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,9 @@ Route::group(['prefix' => ''], static function() {
         ->name('news.show');
  });
 
- Route::get('/catigory_news', [NewsController::class, 'index'])
-        ->name('catigory_news');
+ Route::get('/catigory', [NewsCatigoryController::class, 'index'])
+        ->name('catigory');
 
-Route::get('/catigory_news/{id}/show', [NewsController::class, 'show'])
+Route::get('/catigory/{id}/show', [NewsCatigoryController::class, 'show'])
     ->where('id', '\d+')
-        ->name('catigory_news.show');
+        ->name('catigory.show');
