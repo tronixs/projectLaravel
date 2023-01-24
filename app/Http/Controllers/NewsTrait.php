@@ -3,8 +3,7 @@
 declare(strict_types=1);
 
 namespace App\Http\Controllers;
-use Illuminate\Cache\RetrievesMultipleKeys;
-use PhpParser\Node\Stmt\Return_;
+
 
 trait NewsTrait
 {

@@ -8,10 +8,9 @@
 
         <div class="blog-post">
             <h2 class="blog-post-title">{{ $news['title'] }}</h2>
-            <p class="blog-post-meta">{{ $news['created_at'] }}<br><a href="#">{{ $news['author'] }}</a></p>
+            <p class="blog-post-meta">{{ $news['created_at'] }} by <a href="#">{{ $news['author'] }}</a></p>
 
-            {!! $news['description'] !!}<br>
-            <a href="{{ route('news') }}">Назад</a>
+            {!! $news['description'] !!}
         </div><!-- /.blog-post -->
 
     </div><!-- /.blog-main -->
@@ -21,6 +20,7 @@
             <h4 class="font-italic">About</h4>
             <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
         </div>
+
     </aside><!-- /.blog-sidebar -->
 
 </div><!-- /.row -->

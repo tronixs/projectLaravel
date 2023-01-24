@@ -1,19 +1,8 @@
 @extends('layouts.main')
-@section('content_category')
-    <nav class="nav d-flex justify-content-between">
-        @forelse($categories as $c)
-            <div>
-                <a href="{{ route('categories.show', ['id' => $c['id']]) }}">{{ $c['title'] }}</a>
-            </div>
-        @empty
-            <p>Нет категорий для новостей</p>
-        @endforelse
-    </nav>
-@endsection
 @section('content')
     <div class="row mb-2">
-@forelse ($news as $n)
-        <div class="col-md-6">
+@forelse($news as $n)
+  <div class="col-md-6">
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
                     <strong class="d-inline-block mb-2 text-primary">{{ $n['author'] }}</strong>
@@ -26,7 +15,7 @@
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
             </div>
-        </div>
+  </div>
 @empty
     <h2>Новостей нет</h2>
 @endforelse
