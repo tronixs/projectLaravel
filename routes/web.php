@@ -34,9 +34,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function() {
 Route::group(['prefix' => ''], static function() {
     Route::get('/news', [NewsController::class, 'index'])
      ->name('news');
+
     Route::get('/news/{id}/show', [NewsController::class, 'show'])
     ->where('id', '\d+')
         ->name('news.show');
+});
+
+
+        Route::get('collection', function() {
+            $names = ['names' => ['Ann', 'Billy', 'Sam', 'Jhon', 'Andy', 'Feeby', 'Edd', 'Jil', 'Jeck', 'Freddy']];
+            $collection = collect([
+                ['product' => 'Desk', 'price' => 200],
+                ['product' => 'Chair', 'price' => 100],
+                ['product' => 'Bookcase', 'price' => 150],
+                ['product' => 'Door', 'price' => 100],
+            ]);
+        
+            $collect = \collect($names);
+        
+        
  });
 
  /*
